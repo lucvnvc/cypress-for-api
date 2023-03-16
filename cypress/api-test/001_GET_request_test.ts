@@ -1,5 +1,5 @@
-describe('Test with GET', () => {
-  it('ABC', () => {
+describe('Test with GET request', () => {
+  it('Create a post', () => {
     cy.request({
       url: '/posts',
       method: 'GET',

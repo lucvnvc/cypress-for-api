@@ -1,5 +1,8 @@
 # Tech stack
 ```
+1. Cypress
+2. Mochawesome
+3. JSON - Server (optional)
 
 ```
 
@@ -22,3 +25,5 @@ npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generato
 ```
 Chạy lại lệnh $ yarn để install các dependencies
 ```
+## Start json-server
+```yarn start```

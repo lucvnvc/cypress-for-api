@@ -15,5 +15,12 @@ export default defineConfig({
       json: true,
     },
     video: false,
+    env: {
+      serverUrl: 'http://localhost:3000',
+    },
+    retries: {
+      runMode: 1,
+      openMode: 0,
+    },
   },
 });
