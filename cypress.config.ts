@@ -15,6 +15,7 @@ export default defineConfig({
       json: true,
     },
     video: false,
+    screenshotsFolder: './results/screenshots',
     env: {
       serverUrl: 'http://localhost:3000',
     },
