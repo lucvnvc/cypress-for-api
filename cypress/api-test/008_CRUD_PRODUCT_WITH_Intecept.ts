@@ -21,10 +21,6 @@ describe('CRUD a product with intercept', () => {
   let id1: number;
 
   it.only('Get all products', () => {
-    cy.intercept('GET', '**/*', {
-      fixture: 'interceptData.json',
-    }).as('fakeData');
-    cy.wait('@fakeData');
     cy.getAll(ENTITY_NAME).then(($res) => {
       cy.log(JSON.stringify($res.body));
     });

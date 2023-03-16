@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "json-server --watch data.json",
-    "open": "cypress open",
-    "test": "cypress run",
-    "delete:reports": "rm ./results/* || true",
-    "test:mocha-reporter": "yarn test --reporter mochawesome",
-    "merge-report": "mochawesome-merge \"./results/**.json\" > index.json",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "delete:reports": "rm -rf ./results/* || true && rm -rf ./mochawesome-report/* || true",
+    "run:mocha-reporter": "yarn cy:run --reporter mochawesome",
+    "merge-report": "mochawesome-merge \"./results/*.json\" > index.json",
     "build-report": "marge index.json",
-    "run-and-report": "yarn delete:reports && yarn test:mocha-reporter && yarn merge-report && yarn build-report && serve mochawesome-report"
+    "run-and-report": "yarn delete:reports && yarn run:mocha-reporter && yarn merge-report && yarn build-report && serve mochawesome-report"
   },
   "keywords": [],
   "author": "",
