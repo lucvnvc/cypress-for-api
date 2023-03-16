@@ -1,4 +1,5 @@
-describe('Apply Custom Commands in Cypress', () => {
+describe('Apply Custom Commands in Cypress with CRUD a POST', () => {
+  const ENTITY_NAME = 'posts';
   it('should be able wait until a request resolved', () => {
     let createBody = {
       title: 'Banh mi',
@@ -13,15 +14,15 @@ describe('Apply Custom Commands in Cypress', () => {
       userId: 2,
     };
 
-    cy.createPost(createBody).then(($res) => {
-      let id = (Number($res.body.id) - 1).toString();
-      cy.getPost(id).then(($res) => {
-        cy.updatePost(updateBody.id, updateBody).then(($res) => {
-          cy.deletePost(updateBody.id).then(($res) => {
+    cy.createEntity(ENTITY_NAME, createBody).then(($res) => {
+      let id: number = $res.body.id;
+      cy.getEntityDetail(ENTITY_NAME, Number($res.body.id) - 1).then(($res) => {
+        cy.updateEntity(ENTITY_NAME, id, updateBody).then(($res) => {
+          cy.deleteEntity(ENTITY_NAME, id).then(($res) => {
             cy.log(JSON.stringify($res.body));
             let { status, body } = $res;
             expect(status).to.eql(200, 'Verifying status code: ');
-            expect(body).be.empty;
+            expect(body).to.be.empty;
           });
         });
       });
